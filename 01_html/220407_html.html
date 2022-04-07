@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>220407_html_실습문제</title>
+    <style>
+        /* 시계 아이콘 지우기 */
+        input[type="time"]::-webkit-calendar-picker-indicator {
+            background: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>@실습문제 - html</h1>
+    <form action="">
+        <p>
+            <label for="customerName">고객명 : </label>
+            <input type="text" name="customerName" id="customerName">
+        </p>
+        <p>
+            <label for="phone">전화번호(필수) : </label>
+            <input type="tel" name="phone" id="phone" required>
+        </p>
+        <p>
+            <label for="email">E-mail : </label>
+            <input type="email" name="email" id="email">
+        </p>
+        <p>
+            <label for="pizzaSelect">피자선택(필수) : </label>
+            <select name="pizzaSelect" id="pizzaSelect" required>
+                <option value="">피자를 선택하세요</option>
+                <optgroup label="클래식 피자">
+                    <option value="combinationPizza">콤비네이션 피자</option>
+                    <option value="potatoPizza">포테이토 피자</option>
+                    <option value="sweetpotatoPizza">고구마 피자</option>
+                </optgroup>
+                <optgroup label="프리미엄 피자">
+                    <option value="shrimpGoldPizza">쉬림프골드 피자</option>
+                    <option value="steakPizza">스테이크 피자</option>
+                    <option value="truffleBasilPizza">트러플바질 피자</option>
+                </optgroup>
+            </select>
+        </p>
+
+        <fieldset>
+            <legend>피자 사이즈(필수)</legend>
+            <!-- 
+                radio type에 required를 추가하고자 할 때,
+                name값이 모두 동일하다면 하나의 input에만 추가해주면 됨!
+             -->
+            <input type="radio" name="size" id="small" required>
+            <label for="small">Small</label><br><br>
+            <input type="radio" name="size" id="medium" checked>
+            <label for="medium">Medium</label><br><br>
+            <input type="radio" name="size" id="large">
+            <label for="large">Large</label><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>토핑 선택</legend>
+            <input type="checkbox" name="topping" id="bacon">
+            <label for="bacon">베이컨</label><br><br>
+            <input type="checkbox" name="topping" id="cheese">
+            <label for="cheese">치즈</label><br><br>
+            <input type="checkbox" name="topping" id="onion">
+            <label for="onion">양파</label><br><br>
+            <input type="checkbox" name="topping" id="mushroom">
+            <label for="mushroom">버섯</label><br><br>
+        </fieldset>
+
+        <p>
+            <label for="reqDeliveryTime">희망 배송 시간 : </label>
+            <input type="time" name="reqDeliveryTime" id="reqDeliveryTime">
+        </p>
+        <p>
+            <label for="request">배송시 요청사항 : </label>
+            <textarea type="memo" name="request" id="request" cols="20px" rows="3px"></textarea>
+        </p>
+
+        <input type="submit" value="주문하기">
+    </form>
+</body>
+
+</html>
