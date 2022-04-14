@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>220414_납품정보_실습문제</title>
+    <style>
+        #result {
+            background: yellowgreen;
+            border: 1px solid black;
+            height: 200px;
+        }
+        #productAmount {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>@실습문제2</h2>
+    <form method="get" action="">
+        <fieldset>
+            <legend>납품정보</legend>
+            <ul>
+                <li>
+                    <label for="goodirum">상품명 : </label>
+                    <input type="text" id="productName" list="goodlist" required>
+                    <datalist id="goodlist">
+                        <option value="dog1004">도그1004</option>
+                        <option value="catchicken">고양이치킨</option>
+                        <option value="milk">우유</option>
+                    </datalist>
+                </li>
+                <br>
+                <li>
+                    <label for="productAmount">납품수량 : </label>
+                    <input type="number" id="productAmount" min="10" max="100" step="10" placeholder="최소10이상">
+                </li>
+                <br>
+                <li>
+                    <label for="productLevel">납품등급 : </label>
+                    <input type="range" id="productLevel" min="0" max="10" step="2" onchange="showVal();">&nbsp;
+                    <span id="pVal">0</span>
+                </li>
+                <br>
+                <li>
+                    <label for="message">기타사항 : </label>
+                    <textarea id="message" rows="5" cols="30"></textarea>
+                </li>
+            </ul>
+        </fieldset>
+        <br>
+        <input type="button" value="send message" onclick="printProduct();">
+        <br><br>
+    </form>
+    <div id="result"></div>
+    <script>
+        /**
+         * 납품등급 표시
+         */
+        function showVal() {
+            const productLevel = document.getElementById('productLevel').value;
+            const pVal = document.getElementById('pVal');
+            pVal.innerHTML = productLevel;
+        };
+
+        /**
+         * 납품정보 출력
+         */
+        function printProduct() {
+            const bool = confirm('정말 납품신청하시겠습니까?');
+
+            if(bool) {
+                alert('납품신청이 완료되었습니다.\n납품정보를 확인하십시오.');
+                const pNameVal = productName.value;
+                const pLevelVal = productLevel.value;
+                const pAmountVal = productAmount.value;
+                const messageVal = message.value;
+
+                result.innerHTML = `상품명 : ${pNameVal}<br>
+                                    납품등급 : ${pLevelVal}<br>
+                                    납품수량 : ${pAmountVal}<br>
+                                    기타사항 : ${messageVal}`;
+
+            }
+            else {
+                alert('납품신청이 취소되었습니다.');
+            }
+        };
+    </script>
+</body>
+
+</html>
