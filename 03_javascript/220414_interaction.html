@@ -81,10 +81,16 @@
                                     납품등급 : ${pLevelVal}<br>
                                     납품수량 : ${pAmountVal}<br>
                                     기타사항 : ${messageVal}`;
-
+                
+                // 초기화
+                productName.value = '';
+                productLevel.value = '';
+                productAmount.value = '';
+                message.value = '';
             }
             else {
                 alert('납품신청이 취소되었습니다.');
+                return;
             }
         };
     </script>
